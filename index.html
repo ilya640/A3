@@ -17,28 +17,39 @@
             while (start < end) {
                 if (!(
                         (str[start] >= 'a' && str[start] <= 'z') ||
-                        (str[start] >= 'а' && str[start] <= 'ё')
+                        (str[start] >= 'а' &&
+                            str[start] <= 'ё' &&
+                            str[start] !== 'ъ' &&
+                            str[start] !== 'ь')
                     )) {
                     start++;
                     continue;
                 }
                 if (!(
                         (str[end] >= 'a' && str[end] <= 'z') ||
-                        (str[end] >= 'а' && str[end] <= 'ё')
+                        (str[end] >= 'а' &&
+                            str[end] <= 'ё' &&
+                            str[end] !== 'ъ' &&
+                            str[end] !== 'ь')
                     )) {
                     end--;
                     continue;
                 }
 
-                if (
-                    str[start] !== str[end] &&
-                    !(
-                        (str[start] === 'ё' && str[end] === 'е') ||
-                        (str[end] === 'ё' && str[start] === 'е') ||
-                        (str[start] === 'ъ' && str[end] === 'ь') ||
-                        (str[end] === 'ъ' && str[start] === 'ь')
-                    )
-                ) {
+                let startChar = str[start]
+                let endChar = str[end]
+                const e = 'е';
+                const eEr = 'ё';
+                if (startChar === eEr) {
+                    startChar = e;
+                    5433
+                }
+                if (endChar === eEr) {
+                    endChar = e;
+                }
+
+
+                if (startChar !== endChar) {
                     return false;
                 }
                 start++;
