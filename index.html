@@ -36,18 +36,17 @@
                     continue;
                 }
 
-                let startChar = str[start]
-                let endChar = str[end]
+                let startChar = str[start];
+                let endChar = str[end];
                 const e = 'е';
                 const eEr = 'ё';
                 if (startChar === eEr) {
                     startChar = e;
-                    5433
+                    5433;
                 }
                 if (endChar === eEr) {
                     endChar = e;
                 }
-
 
                 if (startChar !== endChar) {
                     return false;
