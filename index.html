@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A3</title>
+</head>
+
+<body>
+    <script>
+        const isPalindrome = (str) => {
+            let start = 0;
+            let end = str.length - 1;
+            str = str.toLowerCase();
+
+            while (start < end) {
+                if (!(
+                        (str[start] >= 'a' && str[start] <= 'z') ||
+                        (str[start] >= 'а' && str[start] <= 'ё')
+                    )) {
+                    start++;
+                    continue;
+                }
+                if (!(
+                        (str[end] >= 'a' && str[end] <= 'z') ||
+                        (str[end] >= 'а' && str[end] <= 'ё')
+                    )) {
+                    end--;
+                    continue;
+                }
+
+                if (
+                    str[start] !== str[end] &&
+                    !(
+                        (str[start] === 'ё' && str[end] === 'е') ||
+                        (str[end] === 'ё' && str[start] === 'е') ||
+                        (str[start] === 'ъ' && str[end] === 'ь') ||
+                        (str[end] === 'ъ' && str[start] === 'ь')
+                    )
+                ) {
+                    return false;
+                }
+                start++;
+                end--;
+            }
+
+            return true;
+        };
+
+        let userString = '';
+        while (1) {
+            userString = prompt('Введите строку');
+            if (userString !== null) {
+                break;
+            } else {
+                continue;
+            }
+        }
+
+        isPalindrome(userString) ?
+            alert('это палиндром') :
+            alert('это не палиндром');
+    </script>
+</body>
+
+</html>
