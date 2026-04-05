@@ -15,34 +15,35 @@
             str = str.toLowerCase();
 
             while (start < end) {
+                let startChar = str[start];
+                let endChar = str[end];
                 if (!(
-                        (str[start] >= 'a' && str[start] <= 'z') ||
-                        (str[start] >= 'а' &&
-                            str[start] <= 'ё' &&
-                            str[start] !== 'ъ' &&
-                            str[start] !== 'ь')
+                        (startChar >= 'a' && startChar <= 'z') ||
+                        (startChar >= 'а' &&
+                            startChar <= 'ё' &&
+                            startChar !== 'ъ' &&
+                            startChar !== 'ь')
                     )) {
                     start++;
                     continue;
                 }
                 if (!(
-                        (str[end] >= 'a' && str[end] <= 'z') ||
-                        (str[end] >= 'а' &&
-                            str[end] <= 'ё' &&
-                            str[end] !== 'ъ' &&
-                            str[end] !== 'ь')
+                        (endChar >= 'a' && str[end] <= 'z') ||
+                        (endChar >= 'а' &&
+                            endChar <= 'ё' &&
+                            endChar !== 'ъ' &&
+                            endChar !== 'ь')
                     )) {
                     end--;
                     continue;
                 }
 
-                let startChar = str[start];
-                let endChar = str[end];
+
                 const e = 'е';
                 const eEr = 'ё';
                 if (startChar === eEr) {
                     startChar = e;
-                    5433;
+
                 }
                 if (endChar === eEr) {
                     endChar = e;
